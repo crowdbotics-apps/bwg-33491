@@ -10,3 +10,16 @@ class Mandapform(models.Model):
     type = models.CharField(
         max_length=256,
     )
+
+
+class List(models.Model):
+    "Generated Model"
+    name = models.CharField(
+        max_length=256,
+    )
+    address = models.CharField(
+        max_length=256,
+    )
+    category = models.CharField(
+        max_length=256,
+    )

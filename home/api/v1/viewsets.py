@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Mandapform
-from .serializers import MandapformSerializer
+from home.models import List, Mandapform
+from .serializers import ListSerializer, MandapformSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -41,3 +41,12 @@ class MandapformViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = Mandapform.objects.all()
+
+
+class ListViewSet(viewsets.ModelViewSet):
+    serializer_class = ListSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = List.objects.all()
