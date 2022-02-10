@@ -14,13 +14,6 @@ class Mandapform(models.Model):
 
 class List(models.Model):
     "Generated Model"
-    vendoraddress = models.ForeignKey(
-        "home.List",
-        null=True,
-        blank=True,
-        on_delete=models.CASCADE,
-        related_name="list_vendoraddress",
-    )
     vendorcategory = models.ForeignKey(
         "home.Mandapform",
         null=True,
@@ -30,8 +23,15 @@ class List(models.Model):
     )
     vendorname = models.ForeignKey(
         "users.User",
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="list_vendorname",
+    )
+    vendoraddress = models.ForeignKey(
+        "users.User",
         on_delete=models.CASCADE,
         null=True,
         blank=True,
-        related_name="list_vendorname",
+        related_name="list_vendoraddress",
     )
