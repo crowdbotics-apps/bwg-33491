@@ -14,24 +14,24 @@ class Mandapform(models.Model):
 
 class List(models.Model):
     "Generated Model"
-    vendorname = models.OneToOneField(
-        "home.List",
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-        related_name="list_vendorname",
-    )
     vendoraddress = models.ForeignKey(
         "home.List",
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="list_vendoraddress",
     )
     vendorcategory = models.ForeignKey(
         "home.Mandapform",
-        on_delete=models.SET_NULL,
         null=True,
         blank=True,
+        on_delete=models.SET_NULL,
         related_name="list_vendorcategory",
+    )
+    vendorname = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="list_vendorname",
     )
