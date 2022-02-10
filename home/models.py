@@ -23,3 +23,10 @@ class List(models.Model):
     category = models.CharField(
         max_length=256,
     )
+    acceptance = models.OneToOneField(
+        "home.Mandapform",
+        on_delete=models.PROTECT,
+        null=True,
+        blank=True,
+        related_name="list_acceptance",
+    )
