@@ -7,36 +7,42 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0004_list_acceptance'),
+        ("home", "0004_list_acceptance"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='list',
-            name='acceptance',
+            model_name="list",
+            name="acceptance",
         ),
         migrations.RemoveField(
-            model_name='list',
-            name='name',
+            model_name="list",
+            name="name",
         ),
         migrations.AddField(
-            model_name='list',
-            name='vendorcategory',
-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='list_vendorcategory', to='home.Mandapform'),
+            model_name="list",
+            name="vendorcategory",
+            field=models.OneToOneField(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="list_vendorcategory",
+                to="home.Mandapform",
+            ),
         ),
         migrations.AddField(
-            model_name='list',
-            name='vendorname',
+            model_name="list",
+            name="vendorname",
             field=models.CharField(blank=True, max_length=256),
         ),
         migrations.AlterField(
-            model_name='list',
-            name='address',
+            model_name="list",
+            name="address",
             field=models.CharField(blank=True, max_length=256),
         ),
         migrations.AlterField(
-            model_name='list',
-            name='category',
+            model_name="list",
+            name="category",
             field=models.CharField(blank=True, max_length=256),
         ),
     ]

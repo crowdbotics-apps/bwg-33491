@@ -14,22 +14,24 @@ class Mandapform(models.Model):
 
 class List(models.Model):
     "Generated Model"
-    vendorname = models.CharField(
-        max_length=256,
-        blank=True,
-    )
-    address = models.CharField(
-        max_length=256,
-        blank=True,
-    )
-    category = models.CharField(
-        max_length=256,
-        blank=True,
-    )
-    vendorcategory = models.OneToOneField(
-        "home.Mandapform",
+    vendorname = models.OneToOneField(
+        "home.List",
+        on_delete=models.CASCADE,
         null=True,
         blank=True,
-        on_delete=models.PROTECT,
+        related_name="list_vendorname",
+    )
+    vendoraddress = models.ForeignKey(
+        "home.List",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="list_vendoraddress",
+    )
+    vendorcategory = models.ForeignKey(
+        "home.Mandapform",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
         related_name="list_vendorcategory",
     )
