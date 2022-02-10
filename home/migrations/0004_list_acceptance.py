@@ -7,13 +7,19 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0003_list'),
+        ("home", "0003_list"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='list',
-            name='acceptance',
-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='list_acceptance', to='home.Mandapform'),
+            model_name="list",
+            name="acceptance",
+            field=models.OneToOneField(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="list_acceptance",
+                to="home.Mandapform",
+            ),
         ),
     ]

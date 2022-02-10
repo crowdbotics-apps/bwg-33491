@@ -14,19 +14,22 @@ class Mandapform(models.Model):
 
 class List(models.Model):
     "Generated Model"
-    name = models.CharField(
+    vendorname = models.CharField(
         max_length=256,
+        blank=True,
     )
     address = models.CharField(
         max_length=256,
+        blank=True,
     )
     category = models.CharField(
         max_length=256,
+        blank=True,
     )
-    acceptance = models.OneToOneField(
+    vendorcategory = models.OneToOneField(
         "home.Mandapform",
-        on_delete=models.PROTECT,
         null=True,
         blank=True,
-        related_name="list_acceptance",
+        on_delete=models.PROTECT,
+        related_name="list_vendorcategory",
     )
